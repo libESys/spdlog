@@ -36,6 +36,8 @@ public:
 
     void set_formatter(std::unique_ptr<spdlog::formatter> sink_formatter) override;
 
+    void lock();
+    void unlock();
 protected:
     mutex_t &mutex_;
     FILE *file_;

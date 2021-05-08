@@ -127,6 +127,18 @@ SPDLOG_INLINE std::string ansicolor_sink<ConsoleMutex>::to_string_(const string_
     return std::string(sv.data(), sv.size());
 }
 
+template<typename ConsoleMutex>
+SPDLOG_INLINE void ansicolor_sink<ConsoleMutex>::lock()
+{
+    mutex_.lock();
+}
+
+template<typename ConsoleMutex>
+SPDLOG_INLINE void ansicolor_sink<ConsoleMutex>::unlock()
+{
+    mutex_.unlock();
+}
+
 // ansicolor_stdout_sink
 template<typename ConsoleMutex>
 SPDLOG_INLINE ansicolor_stdout_sink<ConsoleMutex>::ansicolor_stdout_sink(color_mode mode)

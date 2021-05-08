@@ -47,6 +47,8 @@ public:
     void set_formatter(std::unique_ptr<spdlog::formatter> sink_formatter) override final;
     void set_color_mode(color_mode mode);
 
+    void lock();
+    void unlock();
 protected:
     using mutex_t = typename ConsoleMutex::mutex_t;
     HANDLE out_handle_;

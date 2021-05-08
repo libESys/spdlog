@@ -154,6 +154,18 @@ void SPDLOG_INLINE wincolor_sink<ConsoleMutex>::write_to_file_(const memory_buf_
     }
 }
 
+template<typename ConsoleMutex>
+SPDLOG_INLINE void wincolor_sink<ConsoleMutex>::lock()
+{
+    mutex_.lock();
+}
+
+template<typename ConsoleMutex>
+SPDLOG_INLINE void wincolor_sink<ConsoleMutex>::unlock()
+{
+    mutex_.unlock();
+}
+
 // wincolor_stdout_sink
 template<typename ConsoleMutex>
 SPDLOG_INLINE wincolor_stdout_sink<ConsoleMutex>::wincolor_stdout_sink(color_mode mode)

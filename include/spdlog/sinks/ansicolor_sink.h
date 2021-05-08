@@ -79,6 +79,8 @@ public:
     const string_view_t red_bold = "\033[31m\033[1m";
     const string_view_t bold_on_red = "\033[1m\033[41m";
 
+    void lock();
+    void unlock();
 private:
     FILE *target_file_;
     mutex_t &mutex_;

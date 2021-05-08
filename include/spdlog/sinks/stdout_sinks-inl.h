@@ -82,6 +82,18 @@ SPDLOG_INLINE void stdout_sink_base<ConsoleMutex>::set_formatter(std::unique_ptr
     formatter_ = std::move(sink_formatter);
 }
 
+template<typename ConsoleMutex>
+SPDLOG_INLINE void stdout_sink_base<ConsoleMutex>::lock()
+{
+    mutex_.lock();
+}
+
+template<typename ConsoleMutex>
+SPDLOG_INLINE void stdout_sink_base<ConsoleMutex>::unlock()
+{
+    mutex_.unlock();
+}
+
 // stdout sink
 template<typename ConsoleMutex>
 SPDLOG_INLINE stdout_sink<ConsoleMutex>::stdout_sink()
